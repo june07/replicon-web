@@ -108,7 +108,8 @@ async function submitHandler() {
 
         const zip = await $api.replicate(store.serverId, {
             options: {
-                baseResolutions: store.resolutions
+                baseResolutions: store.resolutions,
+                outputFormat: store.outputFormat,
             }
         })
 
