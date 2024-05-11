@@ -103,25 +103,34 @@ const links = [{
     name: 'NPM', href: 'https://www.npmjs.com/package/@667/replicon', text: 'replicon', image: '/Npm-logo.svg'
 }]
 async function submitHandler() {
-    loading.value = true
+    try {
+        loading.value = true
 
-    const zip = await $api.replicate(store.serverId, {
-        options: {
-            baseResolutions: store.resolutions
+        const zip = await $api.replicate(store.serverId, {
+            options: {
+                baseResolutions: store.resolutions
+            }
+        })
+
+        if (zip) {
+            const blob = new Blob([zip], { type: 'application/zip' })
+            const url = URL.createObjectURL(blob)
+            const link = document.createElement('a')
+            link.href = url
+            link.download = 'replicon.zip'
+            link.click()
         }
-    })
-
-    if (zip) {
-        const blob = new Blob([zip], { type: 'application/zip' })
-        const url = URL.createObjectURL(blob)
-        const link = document.createElement('a')
-        link.href = url
-        link.download = 'replicon.zip'
-        link.click()
+        complete.value = true
+    } catch (error) {
+        console.error(error)
+        if (/429/.test(error.response.status)) {
+            console.log('Too many requests. Please try again later.')
+        } else {
+            dropzone.value.removeAllFiles(true)
+        }
+    } finally {
+        loading.value = false
     }
-
-    complete.value = true
-    loading.value = false
 }
 onMounted(() => {
     dropzone.value = new Dropzone("#dropzone", {
@@ -135,10 +144,12 @@ onMounted(() => {
             store.serverId = serverId
         },
     })
+    /**
     if (store.file && store.serverId) {
         dropzone.value.emit('addedfile', store.file)
         dropzone.value.emit('thumbnail', store.file, store.file.dataURL)
         dropzone.value.emit('complete', store.file)
     }
+     */
 })
 </script>
