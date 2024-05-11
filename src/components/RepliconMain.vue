@@ -50,17 +50,14 @@
     position: absolute;
     transform: rotate(45deg);
 }
-
 .dropzone {
     border: 0;
     border-radius: 24px;
     background-color: #EDE7F6;
 }
-
 :deep() .dz-preview {
     border-radius: 24px;
 }
-
 :deep() img[data-dz-thumbnail] {
     width: -webkit-fill-available;
 }
