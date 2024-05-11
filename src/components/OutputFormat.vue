@@ -26,41 +26,45 @@ import { useAppStore } from '../store/app'
 const emit = defineEmits(['update'])
 const store = useAppStore()
 const outputFormats = [{
-    value: 'png',
-    title: 'Portable Network Graphics',
-    subtitle: 'https://www.w3.org/TR/png/'
-}, {
-    value: 'webp',
-    title: 'WebP',
-    subtitle: 'https://developers.google.com/speed/subtitlep/'
+    value: 'avif',
+    title: 'AV1 Image File Format',
+    subtitle: 'https://aomediacodec.github.io/av1-avif/'
 }, {
     value: 'gif',
     title: 'Graphics Interchange Format',
     subtitle: 'https://www.w3.org/Graphics/GIF/'
 }, {
+    value: 'heif',
+    title: 'High Efficiency Image File Format',
+    subtitle: 'https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format'
+}, {
     value: 'jp2',
     title: 'JPEG 2000',
-    subtitle: 'https://www.w3.org/Graphics/JPEG/jfif3.pdf'
+    subtitle: 'https://jpeg.org/jpeg2000'
+}, {
+    value: 'jxl',
+    title: 'JPEG XL',
+    subtitle: 'https://jpeg.org/jpegxl'
+}, {
+    value: 'jpeg',
+    title: 'Joint Photographic Experts Group',
+    subtitle: 'https://jpeg.org/jpeg'
+}, {
+    value: 'png',
+    title: 'Portable Network Graphics',
+    subtitle: 'https://www.w3.org/TR/png/'
+}, {
+    value: 'raw',
+    title: 'Raw',
+    subtitle: 'https://en.wikipedia.org/wiki/Raw_image_format'
 }, {
     value: 'tiff',
     title: 'Tagged Image File Format',
     subtitle: 'https://www.w3.org/TR/tiff/'
 }, {
-    value: 'avif',
-    title: 'AV1 Image File Format',
-    subtitle: 'https://aomediacodec.github.io/av1-avif/'
-}, {
-    value: 'heif',
-    title: 'High Efficiency Image File Format',
-    subtitle: 'https://en.wikipedia.org/wiki/High_Efficiency_Image_File_Format'
-}, {
-    value: 'jxl',
-    title: 'JPEG XL',
-    subtitle: 'https://jpegxl.info/'
-}, {
-    value: 'raw',
-    title: 'Raw',
-    subtitle: 'https://en.wikipedia.org/wiki/Raw_image_format'
+    value: 'webp',
+    title: 'WebP',
+    subtitle: 'https://developers.google.com/speed/subtitlep/'
 }]
 function updateHandler(format) {
     store.outputFormat = format[0]
