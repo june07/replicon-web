@@ -9,7 +9,7 @@
         <v-card-text class="d-flex align-center justify-center">
             <v-container fluid>
                 <div class="text-body-1 text-center mb-8">
-                    This tool uses the <a href="https://www.npmjs.com/package/@667/replicon" target="_blank">Replicon</a> npm library.
+                    This <a href="https://github.com/june07/replicon-web" target="_blank">open source tool</a> uses the <a href="https://www.npmjs.com/package/@667/replicon" target="_blank">Replicon</a> npm library.
                 </div>
                 <div class="d-flex align-center justify-center">
                     <div id="dropzone" class="dropzone" @success="onSuccess" @error="onError" @file-loaded="onFileLoaded" @file-error="onFileError">
