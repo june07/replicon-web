@@ -77,6 +77,7 @@ const store = useAppStore()
 const showOptions = computed(() => store.serverId)
 const defaultResolutions = [
     { name: '16x16', value: 16, },
+    { name: '24x24', value: 24, },
     { name: '32x32', value: 32, },
     { name: '48x48', value: 48, },
     { name: '64x64', value: 64, },
